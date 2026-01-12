@@ -1,36 +1,221 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Natural Disaster Without Network
 
-## Getting Started
+An offline-first Next.js application for emergency disaster management that works completely without internet or mobile network connectivity.
 
-First, run the development server:
+## 🎯 Overview
 
+This app is designed to function entirely offline, making it perfect for disaster scenarios where network connectivity may be unavailable. All data is stored locally using browser storage technologies, and the app uses Service Workers to cache all resources.
+
+## ✨ Features
+
+### 🆘 SOS Emergency Messages
+- Create and manage emergency SOS messages
+- Messages persist locally after page refresh
+- Priority levels (High, Medium, Low)
+- Location tagging support
+
+### 💬 Offline Messaging
+- Simulated nearby users for messaging
+- Send and receive messages locally
+- Messages stored in LocalStorage
+- Simulates offline peer-to-peer communication
+
+### ⚠️ Disaster Alerts
+- Create and view disaster alerts
+- Multiple disaster types (Earthquake, Flood, Wildfire, Hurricane, etc.)
+- Severity levels (High, Medium, Low)
+- Location-based alerts
+
+### 📍 Location & Map (Offline)
+- Get current location using browser geolocation
+- Text-based location display
+- Offline map representation
+- Location data stored locally
+
+## 🛠️ Tech Stack
+
+- **Next.js 16** (App Router) - React framework
+- **JavaScript** - No TypeScript dependencies
+- **Tailwind CSS** - Styling
+- **Service Workers** - Offline caching
+- **LocalStorage** - Data persistence
+- **IndexedDB** - Ready for future expansion
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ installed
+- npm or yarn package manager
+
+### Installation
+
+1. Navigate to the project directory:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd natural-disaster-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+### Building for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📱 How Offline Functionality Works
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Service Worker
+- **Location**: `public/sw.js`
+- Caches all pages and assets on first visit
+- Serves cached content when offline
+- Automatically registered on app load
 
-## Deploy on Vercel
+### Data Storage
+- **LocalStorage**: Used for all data persistence
+  - SOS Messages: `sos_messages`
+  - Messages: `messages`
+  - Disaster Alerts: `disaster_alerts`
+  - User Location: `user_location`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Offline-First Architecture
+1. **No External APIs**: The app doesn't depend on any external services
+2. **Local Storage**: All data is stored in the browser
+3. **Service Worker Caching**: All pages and assets are cached
+4. **Simulated Communication**: Messages simulate nearby users locally
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧪 Testing Offline Mode
+
+### Chrome DevTools Method:
+1. Open Chrome DevTools (F12)
+2. Go to **Network** tab
+3. Select **Offline** from the throttling dropdown
+4. Refresh the page - the app should still work!
+
+### Browser Settings:
+1. Turn off Wi-Fi and mobile data
+2. The app will continue to function
+3. All features remain accessible
+
+## 📂 Project Structure
+
+```
+natural-disaster-app/
+├── app/
+│   ├── api/              # API routes (offline)
+│   │   ├── sos/
+│   │   ├── messages/
+│   │   └── alerts/
+│   ├── sos/              # SOS Emergency page
+│   ├── messages/         # Messages page
+│   ├── alerts/           # Disaster Alerts page
+│   ├── location/         # Location & Map page
+│   ├── layout.js         # Root layout
+│   ├── page.js           # Dashboard/home page
+│   └── globals.css       # Global styles
+├── lib/
+│   ├── storage.js        # LocalStorage utilities
+│   └── serviceWorker.js  # Service Worker registration
+├── public/
+│   ├── sw.js             # Service Worker script
+│   └── manifest.json     # PWA manifest
+└── README.md
+```
+
+## 🔧 Key Implementation Details
+
+### Service Worker Registration
+The service worker is registered client-side in `app/client-layout.js`:
+- Automatically registers on page load
+- Caches all routes and assets
+- Handles fetch events for offline support
+
+### Data Persistence
+All data operations use LocalStorage utilities from `lib/storage.js`:
+- `sosStorage` - SOS messages
+- `messagesStorage` - User messages
+- `alertsStorage` - Disaster alerts
+- `locationStorage` - User location
+
+### Simulated Users
+The messaging feature simulates nearby users:
+- Pre-defined list of simulated users
+- Random message generation
+- Simulates offline peer-to-peer communication
+
+## 🎨 UI Features
+
+- **Modern Design**: Clean, hackathon-friendly UI
+- **Responsive**: Works on mobile and desktop
+- **Color-Coded**: Different colors for different features
+- **Offline Indicator**: Shows online/offline status
+- **Easy Navigation**: Simple dashboard with feature cards
+
+## 📝 Usage Examples
+
+### Creating an SOS Message:
+1. Navigate to "SOS Emergency"
+2. Click "Create SOS Message"
+3. Fill in the form
+4. Click "Send SOS"
+5. Message is saved locally and persists after refresh
+
+### Sending a Message:
+1. Navigate to "Offline Messages"
+2. Click "Send Message"
+3. Select a simulated user
+4. Type your message
+5. Message is saved locally
+
+### Creating an Alert:
+1. Navigate to "Disaster Alerts"
+2. Click "Create Alert"
+3. Select disaster type and fill details
+4. Alert is saved and displayed
+
+## 🔒 Privacy & Security
+
+- All data stays on your device
+- No data is sent to external servers
+- No tracking or analytics
+- Completely private and secure
+
+## 🚧 Limitations & Future Enhancements
+
+### Current Limitations:
+- Simulated messaging (not real peer-to-peer)
+- Text-based map (no real map tiles)
+- No real-time synchronization
+
+### Potential Enhancements:
+- IndexedDB for larger data storage
+- WebRTC for real peer-to-peer messaging
+- Offline map tiles caching
+- Export/import data functionality
+- Multiple language support
+
+## 🤝 Contributing
+
+This is a hackathon project demonstrating offline-first architecture. Feel free to fork and enhance!
+
+## 📄 License
+
+MIT License - Feel free to use for your projects!
+
+## 🙏 Acknowledgments
+
+Built for hackathon demonstration of offline-first web applications using Next.js and Service Workers.
+
+---
+
+**Remember**: This app works completely offline. Turn off your internet and try it! 🌐➡️📴
