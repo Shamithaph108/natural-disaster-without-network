@@ -9,29 +9,9 @@ This app is designed to function entirely offline, making it perfect for disaste
 ## ✨ Features
 
 ### 🆘 SOS Emergency Messages
-- Create and manage emergency SOS messages
-- Messages persist locally after page refresh
-- Priority levels (High, Medium, Low)
-- Location tagging support
-
 ### 💬 Offline Messaging
-- Simulated nearby users for messaging
-- Send and receive messages locally
-- Messages stored in LocalStorage
-- Simulates offline peer-to-peer communication
-
 ### ⚠️ Disaster Alerts
-- Create and view disaster alerts
-- Multiple disaster types (Earthquake, Flood, Wildfire, Hurricane, etc.)
-- Severity levels (High, Medium, Low)
-- Location-based alerts
-
 ### 📍 Location & Map (Offline)
-- Get current location using browser geolocation
-- Text-based location display
-- Offline map representation
-- Location data stored locally
-
 ## 🛠️ Tech Stack
 
 - **Next.js 16** (App Router) - React framework
@@ -132,34 +112,8 @@ natural-disaster-app/
 └── README.md
 ```
 
-## 🔧 Key Implementation Details
 
-### Service Worker Registration
-The service worker is registered client-side in `app/client-layout.js`:
-- Automatically registers on page load
-- Caches all routes and assets
-- Handles fetch events for offline support
 
-### Data Persistence
-All data operations use LocalStorage utilities from `lib/storage.js`:
-- `sosStorage` - SOS messages
-- `messagesStorage` - User messages
-- `alertsStorage` - Disaster alerts
-- `locationStorage` - User location
-
-### Simulated Users
-The messaging feature simulates nearby users:
-- Pre-defined list of simulated users
-- Random message generation
-- Simulates offline peer-to-peer communication
-
-## 🎨 UI Features
-
-- **Modern Design**: Clean, hackathon-friendly UI
-- **Responsive**: Works on mobile and desktop
-- **Color-Coded**: Different colors for different features
-- **Offline Indicator**: Shows online/offline status
-- **Easy Navigation**: Simple dashboard with feature cards
 
 ## 📝 Usage Examples
 
@@ -204,17 +158,7 @@ The messaging feature simulates nearby users:
 - Export/import data functionality
 - Multiple language support
 
-## 🤝 Contributing
 
-This is a hackathon project demonstrating offline-first architecture. Feel free to fork and enhance!
-
-## 📄 License
-
-MIT License - Feel free to use for your projects!
-
-## 🙏 Acknowledgments
-
-Built for hackathon demonstration of offline-first web applications using Next.js and Service Workers.
 
 ---
 
