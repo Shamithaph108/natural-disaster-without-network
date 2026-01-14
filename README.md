@@ -27,7 +27,8 @@ This app is designed to function entirely offline, making it perfect for disaste
 - Node.js 18+ installed
 - npm or yarn package manager
 
-- Deployment link:https://natural-disaster-bekl0my7r-shamitha-s-projects-bdb8f3de.vercel.app?_vercel_share=zeQPkVzFCtJWhNyneyrAmRmdLi3lX544
+
+Deployment link:https://natural-disaster-bekl0my7r-shamitha-s-projects-bdb8f3de.vercel.app?_vercel_share=zeQPkVzFCtJWhNyneyrAmRmdLi3lX544
 
 ### Installation
 
