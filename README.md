@@ -11,7 +11,7 @@ This app is designed to function entirely offline, making it perfect for disaste
 ### 🆘 SOS Emergency Messages
 ### 💬 Offline Messaging
 ### ⚠️ Disaster Alerts
-### 📍 Location & Map (Offline)
+### 📍 Location & Map 
 ## 🛠️ Tech Stack
 
 - **Next.js 16** (App Router) - React framework
