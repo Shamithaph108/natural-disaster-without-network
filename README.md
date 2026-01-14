@@ -140,12 +140,6 @@ natural-disaster-app/
 3. Select disaster type and fill details
 4. Alert is saved and displayed
 
-## 🔒 Privacy & Security
-
-- All data stays on your device
-- No data is sent to external servers
-- No tracking or analytics
-- Completely private and secure
 
 ## 🚧 Limitations & Future Enhancements
 
