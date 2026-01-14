@@ -28,7 +28,7 @@ This app is designed to function entirely offline, making it perfect for disaste
 - npm or yarn package manager
 
 
-Deployment link:https://natural-disaster-bekl0my7r-shamitha-s-projects-bdb8f3de.vercel.app?_vercel_share=zeQPkVzFCtJWhNyneyrAmRmdLi3lX544
+Deployment link:https://natural-disaster-app-shamithaph108-shamitha-s-projects-bdb8f3de.vercel.app?_vercel_share=B8SYfak9nmHfssFqYN6Fl4tMJ1cbVFYV
 
 ### Installation
 
